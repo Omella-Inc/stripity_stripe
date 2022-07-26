@@ -56,6 +56,9 @@ defmodule Stripe.Util do
   def object_name_to_module("radar.early_fraud_warning"), do: Stripe.Fraud.EarlyFraudWarning
   def object_name_to_module("file"), do: Stripe.FileUpload
 
+  def object_name_to_module("financial_connections.account"),
+    do: Stripe.FinancialConnections.Account
+
   def object_name_to_module("identity.verification_session"),
     do: Stripe.Identity.VerificationSession
 

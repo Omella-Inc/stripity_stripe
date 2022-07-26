@@ -16,6 +16,7 @@ defmodule Stripe.UtilTest do
       assert object_name_to_module("event") == Stripe.Event
       assert object_name_to_module("external_account") == Stripe.ExternalAccount
       assert object_name_to_module("file") == Stripe.FileUpload
+      assert object_name_to_module("financial_connections.account") == Stripe.FinancialConnections.Account
       assert object_name_to_module("invoice") == Stripe.Invoice
       assert object_name_to_module("invoiceitem") == Stripe.Invoiceitem
       assert object_name_to_module("line_item") == Stripe.LineItem
