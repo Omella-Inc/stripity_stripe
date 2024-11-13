@@ -137,7 +137,7 @@ defmodule Stripe.Converter do
   @spec convert_stripe_object(%{String.t() => any}) :: struct
   defp convert_stripe_object(%{"object" => object_name} = value) do
     module = Stripe.Util.object_name_to_module(object_name)
-    struct_keys = Map.keys(module.__struct__) |> List.delete(:__struct__)
+    struct_keys = Map.keys(module.__struct__()) |> List.delete(:__struct__)
     check_for_extra_keys(struct_keys, value)
 
     processed_map =
@@ -167,7 +167,7 @@ defmodule Stripe.Converter do
     defp warn_unknown_object(%{"object" => object_name}) do
       require Logger
 
-      Logger.warn("Unknown object received: #{object_name}")
+      Logger.warning("Unknown object received: #{object_name}")
     end
   end
 
@@ -202,7 +202,7 @@ defmodule Stripe.Converter do
 
         details = "#{module_name}: #{inspect(extra_keys)}"
         message = "Extra keys were received but ignored when converting #{details}"
-        Logger.warn(message)
+        Logger.warning(message)
       end
 
       :ok
