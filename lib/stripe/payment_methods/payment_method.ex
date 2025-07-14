@@ -76,6 +76,7 @@ defmodule Stripe.PaymentMethod do
     :object,
     :billing_details,
     :card,
+    :card_present,
     :created,
     :customer,
     :link,
