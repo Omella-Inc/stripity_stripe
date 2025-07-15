@@ -58,6 +58,7 @@ defmodule Stripe.PaymentMethod do
             phone: String.t() | nil
           },
           card: Stripe.Card.t() | nil,
+          card_present: term,
           created: Stripe.timestamp(),
           customer: Stripe.id() | Stripe.Customer.t() | nil,
           link: %{persistent_token: String.t() | nil} | nil,
